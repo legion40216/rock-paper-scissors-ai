@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 16px;
+
+  /* === Base UI Variables (keep Shadcn defaults) === */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+
+  /* === Rock–Paper–Scissors Colors (SOLID) === */
+  --color-scissors: hsl(39, 89%, 50%);
+  --color-paper: hsl(230, 89%, 63%);
+  --color-rock: hsl(349, 70%, 54%);
+  --color-lizard: hsl(261, 72%, 62%);
+  --color-spock: hsl(189, 58%, 55%);
+
+  /* Neutral Colors */
+  --color-dark-text: hsl(229, 25%, 31%);
+  --color-score-text: hsl(229, 64%, 46%);
+  --color-header-outline: hsl(217, 16%, 45%);
+
+  /* Background */
+  --color-bg-radial: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
+  /* === Charts === */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* === Sidebar === */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --breakpoint-sm: 375px;
+  --breakpoint-xl: 1366px;
+
+  --font-sans: "Barlow Semi Condensed", system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Preserve Shadcn variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Rock–Paper–Scissors colors */
+  --color-scissors: hsl(39, 89%, 50%);
+  --color-paper: hsl(230, 89%, 63%);
+  --color-rock: hsl(349, 70%, 54%);
+  --color-lizard: hsl(261, 72%, 62%);
+  --color-spock: hsl(189, 58%, 55%);
+
+  /* Neutral Colors */
+  --color-dark-text: hsl(229, 25%, 31%);
+  --color-score-text: hsl(229, 64%, 46%);
+  --color-header-outline: hsl(217, 16%, 45%)
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+    pointer-events: auto !important;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+}
+
+.background-gradient {
+  background: var(--color-bg-radial);
+}
+
+.option_paper {
+  @apply bg-white border-16 border-paper rounded-full size-32 md:size-38 p-6
+              flex items-center justify-center aspect-square
+              transition-transform hover:scale-105 hover:bg-white duration-200;
+  box-shadow:  0 6px rgb(72 101 244 / 80%),inset 0 8px rgb(0 0 0 / 20%);
+  transition: 0.5s ;
+}
+
+.option_rock {
+  @apply bg-white border-16 border-rock rounded-full size-32 md:size-38 p-6
+              flex items-center justify-center aspect-square
+              transition-transform hover:scale-105 hover:bg-white duration-200;
+  box-shadow:  0 6px rgb(220 46 78 / 80%), inset 0 8px rgb(0 0 0 / 20%);
+  transition: 0.5s ;
+}
+
+.option_scissors {
+  @apply bg-white border-16 border-scissors rounded-full size-32 md:size-38 p-6
+              flex items-center justify-center aspect-square
+              transition-transform hover:scale-105 hover:bg-white duration-200;
+  box-shadow:  0 6px rgb(236 158 14 / 80%), inset 0 8px rgb(0 0 0 / 20%);
+  transition: 0.5s ;
+}
+
+/* BONUS ROUND */
+.option_lizard {
+  @apply bg-white border-16 border-lizard rounded-full size-32 md:size-38 p-6
+              flex items-center justify-center aspect-square
+              transition-transform hover:scale-105 hover:bg-white duration-200;
+  box-shadow:  0 6px rgb(137 88 228 / 80%), inset 0 8px rgb(0 0 0 / 20%);
+  transition: 0.5s ;
+}
+
+.option_spock {
+  @apply bg-white border-16 border-spock rounded-full size-32 md:size-38 p-6
+              flex items-center justify-center aspect-square
+              transition-transform hover:scale-105 hover:bg-white duration-200;
+  box-shadow:  0 6px rgb(74 187 207 / 80%), inset 0 8px rgb(0 0 0 / 20%);
+  transition: 0.5s ;
+}
+
+
+.result-rock {
+  @apply bg-white border-20 border-rock rounded-full p-6
+          flex items-center justify-center aspect-square
+          size-38 md:size-60;
+  box-shadow:  0 10px rgb(220 46 78 / 80%), inset 0 12px rgb(0 0 0 / 20%);
+}
+
+.result-paper {
+  @apply bg-white border-20 border-paper rounded-full p-6
+          flex items-center justify-center aspect-square
+          size-38 md:size-60;
+  box-shadow:  0 10px rgb(72 101 244 / 80%), inset 0 12px rgb(0 0 0 / 20%);
+}
+
+.result-scissors {
+  @apply bg-white border-20 border-scissors rounded-full p-6
+          flex items-center justify-center aspect-square
+          size-38 md:size-60;
+  box-shadow:  0 10px rgb(236 158 14 / 80%), inset 0 12px rgb(0 0 0 / 20%);
+}
+
+/* BONUS ROUND */
+.result-lizard {
+  @apply bg-white border-20 border-lizard rounded-full p-6
+          flex items-center justify-center aspect-square
+          size-38 md:size-60;
+  box-shadow:  0 10px rgb(137 88 228 / 80%), inset 0 12px rgb(0 0 0 / 20%);
+}
+
+.result-spock {
+  @apply bg-white border-20 border-spock rounded-full p-6
+          flex items-center justify-center aspect-square
+          size-38 md:size-60;
+  box-shadow:  0 10px rgb(74 187 207 / 80%), inset 0 12px rgb(0 0 0 / 20%);
+}
+
+.shape-bg {
+  @apply absolute inset-0 w-full h-full object-contain opacity-80
+          pointer-events-none scale-y-70 scale-x-70;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@layer utilities {
+  @keyframes winner-ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75% {
+      transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .winner-ping {
+    position: relative;
+  }
+
+  .winner-ping::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: winner-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    z-index: -1;
+  }
+}
