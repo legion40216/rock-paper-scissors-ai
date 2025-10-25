@@ -49,11 +49,10 @@ function getAIMove(ai: any, playerMove: string) {
 type Move = "rock" | "paper" | "scissors" | "lizard" | "spock";
 
 interface RpslsSectionProps {
-  score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function RpslsSection({ score, setScore }: RpslsSectionProps) {
+export default function RpslsSection({ setScore }: RpslsSectionProps) {
   const [ai, setAI] = useState<any | null>(null);
   const [playerMove, setPlayerMove] = useState<Move | null>(null);
   const [aiMove, setAIMove] = useState<Move | null>(null);

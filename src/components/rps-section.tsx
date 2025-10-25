@@ -10,11 +10,10 @@ import bgTriangle from "../assets/images/bg-triangle.svg";
 import { createRPSAI, getAIMove } from "@/utils/rpsAI";
 
 interface RpsSectionProps {
-  score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function RpsSection({ score, setScore }: RpsSectionProps) {
+export default function RpsSection({ setScore }: RpsSectionProps) {
   const [ai, setAI] = useState<any | null>(null);
   const [playerMove, setPlayerMove] = useState<"rock" | "paper" | "scissors" | null>(null);
   const [aiMove, setAIMove] = useState<"rock" | "paper" | "scissors" | null>(null);

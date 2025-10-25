@@ -59,9 +59,9 @@ function App() {
         {/* Game area */}
         <div className="grid place-items-center">
         {toggleBounce ? (
-          <RpslsSection key={gameKey} score={score} setScore={setScore} />
+          <RpslsSection key={gameKey} setScore={setScore} />
         ) : (
-          <RpsSection key={gameKey} score={score} setScore={setScore} />
+          <RpsSection key={gameKey} setScore={setScore} />
         )}
         </div>
         
