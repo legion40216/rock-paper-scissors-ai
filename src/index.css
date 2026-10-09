@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 16px;
+
+  /* === Shadcn defaults === */
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  /* ===                  END                === */
+
+  /* === Colors (SOLID) === */
+  --color-scissors: hsl(39, 89%, 50%);
+  --color-paper: hsl(230, 89%, 63%);
+  --color-rock: hsl(349, 70%, 54%);
+  --color-lizard: hsl(261, 72%, 62%);
+  --color-spock: hsl(189, 58%, 55%);
+
+  /* Neutral Colors */
+  --color-dark-text: hsl(229, 25%, 31%);
+  --color-score-text: hsl(229, 64%, 46%);
+  --color-header-outline: hsl(217, 16%, 45%);
+  /* ===                  END                === */
+}
+
+@theme inline {
+  --breakpoint-sm: 375px;
+  --breakpoint-xl: 1366px;
+
+  --font-sans: "Barlow Semi Condensed", system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* === Colors (SOLID) === */
+  --color-scissors: hsl(39, 89%, 50%);
+  --color-paper: hsl(230, 89%, 63%);
+  --color-rock: hsl(349, 70%, 54%);
+  --color-lizard: hsl(261, 72%, 62%);
+  --color-spock: hsl(189, 58%, 55%);
+
+  /* Neutral Colors */
+  --color-dark-text: hsl(229, 25%, 31%);
+  --color-score-text: hsl(229, 64%, 46%);
+  --color-header-outline: hsl(217, 16%, 45%);
+  /* ===                  END                === */
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans;
+    pointer-events: auto !important;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+}
+
+.custom-button {
+  -webkit-tap-highlight-color: transparent; /* keep this, no Tailwind equivalent */
+
+  @apply appearance-none bg-transparent border-0 p-0
+    cursor-pointer select-none
+    flex justify-center items-center
+    outline-none focus-visible:border-ring focus-visible:ring-ring/50 
+    focus-visible:ring-[3px]
+    disabled:opacity-50 disabled:cursor-not-allowed
+    transition-all duration-150;
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
