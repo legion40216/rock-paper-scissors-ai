@@ -20,4 +20,10 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // shadcn primitives export variant helpers (e.g. `buttonVariants`) next to
+    // their components. That is intentional, so Fast Refresh's rule is off here.
+    files: ['src/components/ui/**'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
 ])
