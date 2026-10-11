@@ -34,16 +34,22 @@ export function Game({ mode, onModeChange }: GameProps) {
       </main>
 
       <footer className="flex flex-col gap-6">
-        <div className="flex flex-wrap items-center justify-center gap-3 md:justify-between">
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button variant="outline" size="sm" onClick={() => onModeChange(otherMode)}>
-              {mode === "classic" ? "Play bonus game" : "Play classic game"}
-            </Button>
-            <Button variant="outline" size="sm" onClick={reset}>
-              Reset
-            </Button>
+        {/* Mobile: toggle on its own row, Reset + Rules share the next one.
+            Desktop: toggle + Reset on the left, Rules pushed to the right. */}
+        <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center">
+          <Button
+            variant="outline"
+            className="col-span-2 md:col-auto"
+            onClick={() => onModeChange(otherMode)}
+          >
+            {mode === "classic" ? "Play bonus game" : "Play classic game"}
+          </Button>
+          <Button variant="outline" onClick={reset}>
+            Reset
+          </Button>
+          <div className="contents md:ml-auto md:block">
+            <RulesDialog mode={mode} />
           </div>
-          <RulesDialog mode={mode} />
         </div>
         <Credits />
       </footer>

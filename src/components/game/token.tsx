@@ -60,7 +60,7 @@ export function Token({ move, winner = false, className }: TokenProps) {
       {winner && (
         <span
           aria-hidden
-          className="absolute inset-0 rounded-full shadow-[0_0_0_14cqw_rgb(255_255_255/0.06),0_0_0_34cqw_rgb(255_255_255/0.045),0_0_0_56cqw_rgb(255_255_255/0.03)] motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-75 motion-safe:duration-700"
+          className="absolute inset-0 rounded-full shadow-[0_0_0_14cqw_color-mix(in_oklab,var(--foreground)_6%,transparent),0_0_0_34cqw_color-mix(in_oklab,var(--foreground)_4.5%,transparent),0_0_0_56cqw_color-mix(in_oklab,var(--foreground)_3%,transparent)] motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-75 motion-safe:duration-700"
         />
       )}
       <span aria-hidden className={ring({ move })} />

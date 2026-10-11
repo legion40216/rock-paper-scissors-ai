@@ -1,9 +1,9 @@
 const linkClass =
-  "text-white underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none";
+  "text-foreground underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none";
 
 export function Credits() {
   return (
-    <p className="text-center text-xs text-white/70">
+    <p className="text-center text-xs text-foreground/70">
       Challenge by{" "}
       <a
         href="https://www.frontendmentor.io?ref=challenge"
@@ -22,7 +22,7 @@ export function Credits() {
       >
         Suleman Lohar
       </a>
-      . Powered by <span className="font-bold text-white">SYNAPTIC.js</span>.
+      . Powered by <span className="font-bold text-foreground">SYNAPTIC.js</span>.
     </p>
   );
 }

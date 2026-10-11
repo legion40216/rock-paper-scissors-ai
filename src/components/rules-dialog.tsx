@@ -67,7 +67,7 @@ export function RulesDialog({ mode }: { mode: Mode }) {
             variant="ghost"
             size="icon"
             aria-label="Close rules"
-            className="focus-visible:ring-dark-text/40 md:col-start-2 md:row-start-1"
+            className="text-card-foreground/60 hover:bg-muted hover:text-card-foreground focus-visible:ring-card-foreground/40 md:col-start-2 md:row-start-1"
           >
             <X className="size-6" />
           </Button>
