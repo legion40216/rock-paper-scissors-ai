@@ -2,42 +2,18 @@
 @import "tw-animate-css";
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 1. shadcn semantic tokens, mapped onto this app's palette.
- *    The app is single-theme (dark), so there is no `.dark` override.
- *    Components in `ui/` read these, so restyling here restyles all of them.
+ * Themes. default.css is stock shadcn and always loads. Every other file
+ * only overrides it and is switched on with <html data-theme="name">.
+ * See themes/README.md.
  * ────────────────────────────────────────────────────────────────────────── */
-:root {
-  --radius: 0.75rem;
+@import "./themes/default.css";
+@import "./themes/holiday.css";
 
-  --background: hsl(237 49% 15%);
-  --foreground: hsl(0 0% 100%);
+@custom-variant dark (&:is(.dark *));
 
-  /* Surfaces that sit on top of the page (the rules dialog). */
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(229 25% 31%);
-  --popover: var(--card);
-  --popover-foreground: var(--card-foreground);
-
-  /* `Button` default variant: white pill, dark label. */
-  --primary: hsl(0 0% 100%);
-  --primary-foreground: hsl(229 25% 31%);
-  --secondary: hsl(0 0% 100%);
-  --secondary-foreground: hsl(229 25% 31%);
-
-  --muted: hsl(228 20% 92%);
-  --muted-foreground: hsl(217 16% 45%);
-  --accent: hsl(228 20% 92%);
-  --accent-foreground: hsl(229 25% 31%);
-
-  --destructive: hsl(349 70% 54%);
-  --border: hsl(217 16% 45%);
-  --input: hsl(217 16% 45%);
-  --ring: hsl(38 95% 60%);
-
-  /* Top of the page's radial gradient (the bottom is `--background`). */
-  --background-glow: hsl(214 47% 23%);
-}
-
+/* ──────────────────────────────────────────────────────────────────────────
+ * Wiring: connects theme variables to Tailwind utilities. No values here.
+ * ────────────────────────────────────────────────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -64,15 +40,19 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* The font is a runtime variable so a theme can swap it. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+}
+
 /* ──────────────────────────────────────────────────────────────────────────
- * 2. Brand tokens: the single source of truth for game colours.
- *    Each move has a gradient (`-light` -> base) and a darker `-edge` that
- *    forms the 3D lip under the token. `static` keeps them all in the output
- *    because tokens reference them through `var()` in arbitrary values.
+ * Game identity: NOT part of any theme. Rock is always red, paper always
+ * blue, so swapping the shell theme never changes what the tokens mean.
+ * Each move has a gradient (`-light` -> base) and a darker `-edge` for the
+ * 3D lip. `static` keeps them in the output because tokens reference them
+ * through `var()` in arbitrary values.
  * ────────────────────────────────────────────────────────────────────────── */
 @theme static {
-  --font-sans: "Barlow Semi Condensed", ui-sans-serif, system-ui, sans-serif;
-
   --color-scissors: hsl(39 89% 49%);
   --color-scissors-light: hsl(40 84% 53%);
   --color-scissors-edge: color-mix(in oklab, var(--color-scissors) 70%, black);
@@ -96,27 +76,15 @@
   /* The white face inside a token, and the shade at its top lip. */
   --color-face: hsl(0 0% 100%);
   --color-face-shade: hsl(214 25% 78%);
-
-  --color-dark-text: hsl(229 25% 31%);
-  --color-score-text: hsl(229 64% 46%);
-  --color-header-outline: hsl(217 16% 45%);
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 3. Base
+ * Base
  * ────────────────────────────────────────────────────────────────────────── */
 @layer base {
-  html {
-    color-scheme: dark;
-  }
-
   body {
     @apply min-h-dvh bg-background font-sans text-foreground antialiased;
-    background-image: radial-gradient(
-      circle at top,
-      var(--background-glow),
-      var(--background)
-    );
+    background-image: var(--page-bg);
     text-rendering: optimizeLegibility;
   }
 

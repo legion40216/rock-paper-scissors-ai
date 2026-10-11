@@ -66,7 +66,7 @@ export function RoundResult({ round, onPlayAgain }: RoundResultProps) {
 
         {result && (
           // Focus follows the player to the next action once the turn ends.
-          <Button autoFocus onClick={onPlayAgain} className="w-56">
+          <Button variant="pill" autoFocus onClick={onPlayAgain} className="w-56">
             Play again
           </Button>
         )}

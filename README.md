@@ -23,11 +23,12 @@ src/
     use-game.ts          The one hook that wires reducer + opponent + timer
     opponents/           rps.ts (pattern learner), rpsls.ts (bonus), factory
   components/
-    ui/                  shadcn primitives (button, dialog), restyled to the brand
+    ui/                  shadcn primitives (button, dialog): stock variants + theme knobs
     game/                token, move-picker, round-result, game (composition root)
     layout/              header, credits
     rules-dialog.tsx
-  index.css              Design tokens + base styles (the only CSS file)
+  themes/                Swappable looks: default.css (stock shadcn) + holiday.css. See themes/README.md
+  index.css              Wiring (variables -> Tailwind) + the game's own move colours
 ```
 
 ## Design decisions
@@ -40,9 +41,13 @@ src/
 - **shadcn for actions, bespoke for tokens.** `Button` and `Dialog` (focus trap, Esc, scroll lock,
   focus return) come from shadcn. The game tokens are their own component because they are the
   product's visual identity, not a generic button.
-- **Tokens, not magic values.** Colours live in `@theme` in `index.css`. Components use semantic
-  utilities (`from-rock-light to-rock`), never raw hex. The token's 3D look uses container-relative
-  units (`cqw`), so it's identical at any size.
+- **Themes are plug and play.** Components read CSS variables and never contain theme values.
+  `default.css` is stock shadcn; `holiday.css` only overrides it, scoped to
+  `<html data-theme="holiday">`. Remove the attribute for stock shadcn, or delete the file (and
+  its font goes with it). Shape (radius, case, tracking, height) is themeable through `--btn-*`
+  knobs, not only colour. Details in `src/themes/README.md`.
+- **Game identity is not themed.** Move colours live in `index.css`, so rock is always red.
+  Tokens use `cqw` units, so one component works at any size.
 - **Fluid board.** Token positions are percentages of the board, so the layout only needs a width
   cap per breakpoint.
 - **Accessibility.** Real `<button>`s with names, a live-region result announcement, focus moves to
