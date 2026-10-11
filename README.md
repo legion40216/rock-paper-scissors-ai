@@ -27,7 +27,7 @@ src/
     game/                token, move-picker, round-result, game (composition root)
     layout/              header, credits
     rules-dialog.tsx
-  themes/                Swappable looks: default.css (stock shadcn) + holiday.css. See themes/README.md
+  themes/                Swappable looks: default (stock shadcn), frontend-mentor, holiday + the switcher hook. See themes/README.md
   index.css              Wiring (variables -> Tailwind) + the game's own move colours
 ```
 
@@ -42,10 +42,11 @@ src/
   focus return) come from shadcn. The game tokens are their own component because they are the
   product's visual identity, not a generic button.
 - **Themes are plug and play.** Components read CSS variables and never contain theme values.
-  `default.css` is stock shadcn; `holiday.css` only overrides it, scoped to
-  `<html data-theme="holiday">`. Remove the attribute for stock shadcn, or delete the file (and
-  its font goes with it). Shape (radius, case, tracking, height) is themeable through `--btn-*`
-  knobs, not only colour. Details in `src/themes/README.md`.
+  `default.css` is stock shadcn; `frontend-mentor.css` and `holiday.css` only override it, each
+  scoped to `<html data-theme="...">`. The in-app switcher saves the choice and restores it before
+  first paint (no flash). Delete a theme file and its font goes with it. Shape (radius, case,
+  tracking, height, shadow) is themeable through `--btn-*` knobs, not only colour. Details in
+  `src/themes/README.md`.
 - **Game identity is not themed.** Move colours live in `index.css`, so rock is always red.
   Tokens use `cqw` units, so one component works at any size.
 - **Fluid board.** Token positions are percentages of the board, so the layout only needs a width

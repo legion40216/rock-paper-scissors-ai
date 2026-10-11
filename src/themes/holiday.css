@@ -1,57 +1,60 @@
 /* ──────────────────────────────────────────────────────────────────────────
- * holiday: the warm, chunky brand look (navy page, white pills, uppercase
- * tracked labels). Plug and play:
+ * holiday: warm and chunky. Adapted to this game from the Papa Johns mobile
+ * site, taking only the essentials: cream page, green primary action, black
+ * outlines, a hard offset shadow under secondary buttons, a heavy condensed
+ * face. Colours were sampled from a screenshot of that site.
+ *
+ * Mapping onto this app:
+ *   page .............. cream      (their tab bar / "Repeat order" colour)
+ *   Play again ........ green pill with a black outline ("Start my order")
+ *   Reset / Rules ..... cream outline buttons with a hard red shadow
+ *   score + dialog .... white cards, black text
+ * The game's own move colours are untouched (see index.css).
  *
  *   enable : <html data-theme="holiday">
- *   disable: remove the attribute (stock shadcn from default.css is back)
- *   delete : remove this file and its @import in index.css; nothing else
- *            references it, and the font below goes with it.
+ *   delete : remove this file, its @import in index.css and its registry entry
  *
- * Overrides ONLY. The selector is `:root[data-theme=...]` (specificity 0,2,0)
- * so it beats default.css's `:root` / `.dark` regardless of import order.
+ * Overrides ONLY; anything omitted falls back to default.css.
  * ────────────────────────────────────────────────────────────────────────── */
-@import "@fontsource/barlow-semi-condensed/600.css";
-@import "@fontsource/barlow-semi-condensed/700.css";
+@import "@fontsource/anton/400.css";
 
 :root[data-theme="holiday"] {
-  color-scheme: dark;
-  --font-sans: "Barlow Semi Condensed", ui-sans-serif, system-ui, sans-serif;
-  --radius: 0.75rem;
+  --font-sans: "Anton", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.625rem;
 
-  /* Page */
-  --background: hsl(237 49% 15%);
-  --foreground: hsl(0 0% 100%);
-  --page-bg: radial-gradient(circle at top, hsl(214 47% 23%), hsl(237 49% 15%));
-
-  /* Light surfaces on the dark page (score card, rules dialog) */
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(229 25% 31%);
+  /* Page and surfaces */
+  --background: #f5e8dc;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
   --popover: var(--card);
   --popover-foreground: var(--card-foreground);
 
-  /* White pill buttons with dark labels */
-  --primary: hsl(0 0% 100%);
-  --primary-foreground: hsl(229 25% 31%);
-  --secondary: hsl(0 0% 100%);
-  --secondary-foreground: hsl(229 25% 31%);
-  --accent: hsl(0 0% 100%);
-  --accent-foreground: hsl(229 25% 31%);
+  /* Green is the primary action; cream is the secondary surface */
+  --primary: #2d5d2a;
+  --primary-foreground: #ffffff;
+  --secondary: #f5e8dc;
+  --secondary-foreground: #000000;
+  --accent: #ead7c4; /* hover fill on cream */
+  --accent-foreground: #000000;
+  --muted: #ead7c4;
+  --muted-foreground: #2d5d2a; /* the "SCORE" label */
+  --destructive: #fd0000;
 
-  --muted: hsl(228 20% 92%);
-  --muted-foreground: hsl(229 64% 46%);
-  --destructive: hsl(349 71% 52%);
-  --border: hsl(217 16% 45%);
-  --input: hsl(217 16% 45%);
-  --ring: hsl(38 95% 60%);
+  /* Black outlines everywhere */
+  --border: #000000;
+  --input: #000000;
+  --ring: #000000;
 
-  /* Shape knobs: what makes it feel chunky rather than neutral */
+  /* Shape knobs */
   --btn-radius: var(--radius);
   --btn-h: 3rem;
   --btn-px: 2rem;
-  --btn-text: 1rem;
-  --btn-weight: 600;
+  --btn-text: 1.125rem;
+  --btn-weight: 400; /* Anton ships a single, already heavy weight */
   --btn-case: uppercase;
-  --btn-tracking: 0.15em;
+  --btn-tracking: 0.05em;
   --btn-border: 2px;
-  --logo-filter: none;
+  --btn-shadow: 0 4px 0 #710500;
+  --pill-border: 2px solid var(--border);
 }
