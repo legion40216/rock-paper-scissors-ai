@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Credits } from "@/components/layout/credits";
 import { Header } from "@/components/layout/header";
+import { ThemeSwitcher } from "@/components/layout/theme-switcher";
 import { RulesDialog } from "@/components/rules-dialog";
 import type { Mode } from "@/game/moves";
 import { useGame } from "@/game/use-game";
@@ -51,7 +52,10 @@ export function Game({ mode, onModeChange }: GameProps) {
             <RulesDialog mode={mode} />
           </div>
         </div>
-        <Credits />
+        <div className="flex flex-col gap-4">
+          <ThemeSwitcher />
+          <Credits />
+        </div>
       </footer>
     </div>
   );
