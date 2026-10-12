@@ -7,6 +7,7 @@
  * See themes/README.md.
  * ────────────────────────────────────────────────────────────────────────── */
 @import "./themes/default.css";
+@import "./themes/frontend-mentor.css";
 @import "./themes/holiday.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -86,6 +87,8 @@
     @apply min-h-dvh bg-background font-sans text-foreground antialiased;
     background-image: var(--page-bg);
     text-rendering: optimizeLegibility;
+    /* Some theme fonts ship one weight; never fake a bold on top of them. */
+    font-synthesis: none;
   }
 
   * {
