@@ -40,6 +40,11 @@
   --btn-case: none;
   --btn-tracking: normal;
   --btn-border: 1px;
+  /* Outline buttons: stock shadcn shadow; themes may use a hard offset shadow. */
+  --btn-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* Main action button theme knobs. */
+  --pill-border: 0 solid transparent;
+  --pill-hover-fg: var(--primary-foreground);
   --page-bg: none;
   /* The Frontend Mentor logo is white artwork, so it needs inverting on a light page. */
   --logo-filter: invert(1);
