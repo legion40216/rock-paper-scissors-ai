@@ -1,0 +1,73 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * default: stock shadcn/ui (neutral). Always loaded, so removing a theme
+ * leaves the app looking like plain shadcn.
+ *
+ * Two kinds of values live here:
+ *   1. shadcn's semantic colours (--primary, --card, ...)
+ *   2. "knobs": shape/behaviour values our components read (--btn-*, ...).
+ *      Every knob MUST have a default here, so a theme (or a preset pasted
+ *      from tweakcn / shadcnblocks that doesn't know our knobs) never leaves
+ *      a component with an undefined value.
+ * ────────────────────────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+
+  /* Knobs (values equal stock shadcn's Button). */
+  --btn-radius: calc(var(--radius) - 2px);
+  --btn-h: 2.25rem;
+  --btn-px: 1rem;
+  --btn-text: 0.875rem;
+  --btn-weight: 500;
+  --btn-case: none;
+  --btn-tracking: normal;
+  --btn-border: 1px;
+  /* Outline buttons: stock shadcn shadow; themes may use a hard offset shadow. */
+  --btn-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* Main action button theme knobs. */
+  --pill-border: 0 solid transparent;
+  --pill-hover-fg: var(--primary-foreground);
+  --page-bg: none;
+  /* The Frontend Mentor logo is white artwork, so it needs inverting on a light page. */
+  --logo-filter: invert(1);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --logo-filter: none;
+}
