@@ -1,0 +1,58 @@
+/* ──────────────────────────────────────────────────────────────────────────
+ * frontend-mentor: the look from the Frontend Mentor challenge design (navy
+ * page, white pills, uppercase tracked labels). Plug and play:
+ *
+ *   enable : <html data-theme="frontend-mentor">
+ *   disable: remove the attribute (stock shadcn from default.css is back)
+ *   delete : remove this file and its @import in index.css; nothing else
+ *            references it, and the font below goes with it.
+ *
+ * Overrides ONLY. The selector is `:root[data-theme=...]` (specificity 0,2,0)
+ * so it beats default.css's `:root` / `.dark` regardless of import order.
+ * ────────────────────────────────────────────────────────────────────────── */
+@import "@fontsource/barlow-semi-condensed/600.css";
+@import "@fontsource/barlow-semi-condensed/700.css";
+
+:root[data-theme="frontend-mentor"] {
+  color-scheme: dark;
+  --font-sans: "Barlow Semi Condensed", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0.75rem;
+
+  /* Page */
+  --background: hsl(237 49% 15%);
+  --foreground: hsl(0 0% 100%);
+  --page-bg: radial-gradient(circle at top, hsl(214 47% 23%), hsl(237 49% 15%));
+
+  /* Light surfaces on the dark page (score card, rules dialog) */
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(229 25% 31%);
+  --popover: var(--card);
+  --popover-foreground: var(--card-foreground);
+
+  /* White pill buttons with dark labels */
+  --primary: hsl(0 0% 100%);
+  --primary-foreground: hsl(229 25% 31%);
+  --secondary: hsl(0 0% 100%);
+  --secondary-foreground: hsl(229 25% 31%);
+  --accent: hsl(0 0% 100%);
+  --accent-foreground: hsl(229 25% 31%);
+
+  --muted: hsl(228 20% 92%);
+  --muted-foreground: hsl(229 64% 46%);
+  --destructive: hsl(349 71% 52%);
+  --border: hsl(217 16% 45%);
+  --input: hsl(217 16% 45%);
+  --ring: hsl(38 95% 60%);
+
+  /* Shape knobs: what makes it feel chunky rather than neutral */
+  --btn-radius: var(--radius);
+  --btn-h: 3rem;
+  --btn-px: 2rem;
+  --btn-text: 1rem;
+  --btn-weight: 600;
+  --btn-case: uppercase;
+  --btn-tracking: 0.15em;
+  --btn-border: 2px;
+  --pill-hover-fg: var(--destructive); /* "Play again" label turns red on hover */
+  --logo-filter: none;
+}
